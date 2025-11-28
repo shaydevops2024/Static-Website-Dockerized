@@ -1,132 +1,115 @@
+# Static Website with Nginx (Dockerized)
 
-#Static Website with Nginx (Dockerized)
+This repository contains a dockerized static website (HTML, CSS, images)
+served by **Nginx**.\
+It demonstrates how to package a website into a Docker image and share
+it on **Docker Hub**.
 
-This repository contains a fully dockerized static website (HTML/CSS/Images) served by Nginx.
-The project demonstrates how to package a simple website into a Docker image and share it with others through Docker Hub.
+## 📁 Project Structure
 
-⸻
+    ├── index.html
+    ├── about.html
+    ├── styles/
+    ├── images/
+    └── Dockerfile
 
-📁 Project Structure
+## 🐳 Dockerfile Explanation
 
-├── index.html
-├── about.html
-├── styles/
-├── images/
-└── Dockerfile
+The project uses the official lightweight **nginx:alpine** image.
 
-	•	HTML files – the website pages.
-	•	styles/ – CSS files.
-	•	images/ – images used by the site.
-	•	Dockerfile – builds an Nginx container that serves the website.
-
-⸻
-
-##Dockerfile Explanation
-
-The Dockerfile uses the official lightweight nginx:alpine image.
-
+``` dockerfile
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 COPY . /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+```
 
-##What it does:
-	1.	Downloads the Nginx server.
-	2.	Removes default Nginx placeholder files.
-	3.	Copies your website files into /usr/share/nginx/html (the Nginx web root).
-	4.	Exposes port 80.
-	5.	Starts Nginx in the foreground.
+### What this Dockerfile does:
 
-⸻
+1.  Pulls the official lightweight Nginx server.
+2.  Removes the default Nginx HTML files.
+3.  Copies your website files into Nginx's web directory.
+4.  Exposes port **80**.
+5.  Starts Nginx in the foreground.
 
-##How to Build the Docker Image
+## 🚀 How to Build the Docker Image
 
-Run inside the project folder:
+Run this inside the project folder:
 
+``` bash
 docker build -t mysite .
+```
 
-This creates a Docker image named mysite.
+## ▶️ How to Run the Website Locally
 
-⸻
+Start the container:
 
-##How to Run the Website Locally (Docker Run)
-
-Start a container:
-
+``` bash
 docker run -d -p 8080:80 mysite
+```
 
-Now open your browser and visit:
+Then open in your browser:
 
-http://localhost:8080
+    http://localhost:8080
 
-###Note: you you run this on a server with a public IP, 
-you can use it instad of "localhost"
+## 🌍 Publishing the Image to Docker Hub
 
-You should see your website running inside a Docker container.
+### 1. Log in:
 
-⸻
-
-##Publishing the Website to Docker Hub
-
-If you want others to download and run your website easily, push it to Docker Hub.
-
-* Log in:
-
+``` bash
 docker login
+```
 
-* Tag your image:
+### 2. Tag the image:
 
-Replace YOUR_USERNAME with your Docker Hub username.
+Replace **YOUR_USERNAME** with your Docker Hub username.
 
+``` bash
 docker tag mysite YOUR_USERNAME/mysite:latest
+```
 
-* Push it:
+### 3. Push to Docker Hub:
 
+``` bash
 docker push YOUR_USERNAME/mysite:latest
+```
 
-Your image is now available in your Docker Hub repository.
+## 📥 How Others Can Download and Run It
 
-⸻
-
-##How Others Can Download and Run It
-
-Anyone can pull and run your website:
-
+``` bash
 docker pull YOUR_USERNAME/mysite:latest
 docker run -d -p 8080:80 YOUR_USERNAME/mysite:latest
+```
 
-Then open in the browser:
+Open:
 
-http://localhost:8080
+    http://localhost:8080
 
+## 🧪 Testing in the Browser
 
-⸻
+1.  Start the container.
+2.  Open a browser.
+3.  Go to:
 
-##Testing in the Browser
+```{=html}
+<!-- -->
+```
+    http://localhost:8080
 
-Once the container is running:
-	1.	Open any browser (Chrome, Firefox, Edge).
-	2.	Go to:
+To stop:
 
-http://localhost:8080
-
-	3.	You should see the static website served by Nginx.
-
-To stop the container:
-
+``` bash
 docker ps
 docker stop <container_id>
+```
 
-
-⸻
-
-##Summary:
+## ✔ Summary
 
 This project demonstrates:
 
-✔ How to serve a static HTML/CSS website using Nginx
-✔ How to package it into a Docker image
-✔ How to run it locally
-✔ How to publish it to Docker Hub
-✔ How others can pull and use your image
+-   Serving a static HTML/CSS website using Nginx\
+-   Packaging the site into a Docker image\
+-   Running it locally\
+-   Publishing it to Docker Hub\
+-   Letting others download and run it easily
