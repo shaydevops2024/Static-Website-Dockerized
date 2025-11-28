@@ -13,7 +13,7 @@ it on **Docker Hub**.
     ├── images/
     └── Dockerfile
 
-## 🐳 Dockerfile Explanation
+## Dockerfile Explanation
 
 The project uses the official lightweight **nginx:alpine** image.
 
@@ -33,7 +33,7 @@ CMD ["nginx", "-g", "daemon off;"]
 4.  Exposes port **80**.
 5.  Starts Nginx in the foreground.
 
-## 🚀 How to Build the Docker Image
+## How to Build the Docker Image
 
 Run this inside the project folder:
 
@@ -41,7 +41,7 @@ Run this inside the project folder:
 docker build -t mysite .
 ```
 
-## ▶️ How to Run the Website Locally
+## How to Run the Website Locally
 
 Start the container:
 
@@ -53,7 +53,7 @@ Then open in your browser:
 
     http://localhost:8080
 
-## 🌍 Publishing the Image to Docker Hub
+## Publishing the Image to Docker Hub
 
 ### 1. Log in:
 
@@ -75,7 +75,7 @@ docker tag mysite YOUR_USERNAME/mysite:latest
 docker push YOUR_USERNAME/mysite:latest
 ```
 
-## 📥 How Others Can Download and Run It
+## How Others Can Download and Run It
 
 ``` bash
 docker pull YOUR_USERNAME/mysite:latest
@@ -86,7 +86,7 @@ Open:
 
     http://localhost:8080
 
-## 🧪 Testing in the Browser
+## Testing in the Browser
 
 1.  Start the container.
 2.  Open a browser.
