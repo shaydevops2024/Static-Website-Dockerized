@@ -93,7 +93,6 @@ Open:
 3.  Go to:
 
 ```{=html}
-<!-- -->
 ```
     http://localhost:8080
 
