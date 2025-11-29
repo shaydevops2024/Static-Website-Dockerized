@@ -96,7 +96,7 @@ http://localhost:8080
 3.  Go to:
 
 ``` bash 
-<http://localhost:8080>
+http://localhost:8080
 ```
 
 To stop:
