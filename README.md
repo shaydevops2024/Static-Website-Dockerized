@@ -85,7 +85,9 @@ docker run -d -p 8080:80 YOUR_USERNAME/mysite:latest
 
 Open:
 
-    http://localhost:8080
+``` bash
+http://localhost:8080
+```
 
 ## Testing in the Browser
 
@@ -94,7 +96,7 @@ Open:
 3.  Go to:
 
 ``` bash 
-http://localhost:8080
+<http://localhost:8080>
 ```
 
 To stop:
