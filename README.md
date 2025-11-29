@@ -9,6 +9,7 @@ it on **Docker Hub**.
 
     ├── index.html
     ├── about.html
+    ├── error(404).html
     ├── styles/
     ├── images/
     └── Dockerfile
@@ -92,9 +93,9 @@ Open:
 2.  Open a browser.
 3.  Go to:
 
-```{=html}
+``` bash 
+http://localhost:8080
 ```
-    http://localhost:8080
 
 To stop:
 
